@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "rootDir": ".\\src",
+        "outDir": ".\\js"
+    }
+}
+
+// tsc -p tsconfig.json
+// kita opcija:  tsc --target es2017 script.ts ((es2017 kaip pvz..))
