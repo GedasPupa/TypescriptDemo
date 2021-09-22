@@ -1,6 +1,6 @@
 "use strict";
-// 8kyu
-//remove ! from any string if exists:
+// 8kyu Exclamation marks series #1: Remove a exclamation mark from the end of string
+//remove ! from any string end if exists:
 function remove(s) {
     const strArr = s.split("");
     strArr[strArr.length - 1] == "!"
@@ -9,7 +9,7 @@ function remove(s) {
     return strArr.join("");
 }
 // console.log(remove("Hi!"));
-// 6kyu
+// 6kyu - Valid Braces ----------------------------------------------------------
 // is valid parentheses, brackets and curly braces: ()[]{} ??
 // "([{}])"   =>  True
 // "[({})](]" =>  False
@@ -42,5 +42,27 @@ function validBraces(braces) {
         return false;
     }
 }
-// for now works only on 'mirror' brackets:
-console.log(validBraces("([{}])"));
+// for now works only on 'mirror' brackets: ([{}])
+// Doesn't work: ({})[({})] // (){}[]
+// good version:
+function clearBraces(br) {
+    const strArr = br.split("");
+    let bool = true;
+    while (bool) {
+        bool = false;
+        for (let i = 0; i < strArr.length - 1; i++) {
+            if ((strArr[i] === "{" && strArr[i + 1] === "}") ||
+                (strArr[i] === "(" && strArr[i + 1] === ")") ||
+                (strArr[i] === "[" && strArr[i + 1] === "]")) {
+                strArr.splice(i, 2);
+                bool = true;
+            }
+        }
+    }
+    return strArr.length === 0 ? true : false;
+}
+// console.log(clearBraces("({})[({})]"));
+// console.log(clearBraces("[({})](]"));
+// console.log(clearBraces("({[]})"));
+// *kyu - Name name name ----------------------------------------------------------
+//
